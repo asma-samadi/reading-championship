@@ -36,17 +36,23 @@ const competitors = [
 ];
 
 function calculateProgress(totalPages, pagesRead) {
-  let progress = (pagesRead / totalPages) * 100;
-  return Math.round(progress);
+  return Math.round((pagesRead / totalPages) * 100);
 }
-
-console.log(calculateProgress(998, 98));
 
 function calculateTotalPagesRead(pagesReadArray) {
   let total = 0;
   for (let i = 0; i < pagesReadArray.length; i++) {
-    total = total + pagesReadArray[i];
+    total += pagesReadArray[i];
   }
   return total;
 }
-console.log(calculateTotalPagesRead([78, 89, 56]));
+
+function calculateCompletionRate(pagesReadArray, totalPagesArray) {
+  let totalProgress = 0;
+
+  for (let i = 0; i < pagesReadArray.length; i++) {
+    totalProgress += (pagesReadArray[i] / totalPagesArray[i]) * 100;
+  }
+
+  return totalProgress / pagesReadArray.length;
+}
