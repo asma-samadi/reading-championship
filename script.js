@@ -60,3 +60,38 @@ function calculateCompletionRate(pagesReadArray, totalPagesArray) {
 function awardPoints(totalPages, completionRate) {
   return Math.round(totalPages + completionRate * 2);
 }
+
+let winnerName = "";
+let highestScore = 0;
+
+for (let i = 0; i < competitors.length; i++) {
+  let competitor = competitors[i];
+
+  let totalPages = calculateTotalPagesRead(competitor.pagesRead);
+
+  let completionRate = calculateCompletionRate(
+    competitor.pagesRead,
+    competitor.totalPages,
+  );
+
+  let score = awardPoints(totalPages, completionRate);
+
+  console.log(
+    competitor.name +
+      ": " +
+      totalPages +
+      " pages, " +
+      completionRate.toFixed(2) +
+      "% completion, Score: " +
+      score,
+  );
+
+  if (score > highestScore) {
+    highestScore = score;
+    winnerName = competitor.name;
+  }
+}
+
+console.log(
+  "🏆 Champion: " + winnerName + " with " + highestScore + " points!",
+);
