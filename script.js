@@ -41,3 +41,12 @@ function calculateProgress(totalPages, pagesRead) {
 }
 
 console.log(calculateProgress(998, 98));
+
+function calculateTotalPagesRead(pagesReadArray) {
+  let total = 0;
+  for (let i = 0; i < pagesReadArray.length; i++) {
+    total = total + pagesReadArray[i];
+  }
+  return total;
+}
+console.log(calculateTotalPagesRead([78, 89, 56]));
