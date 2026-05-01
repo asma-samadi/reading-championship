@@ -34,3 +34,10 @@ const competitors = [
     pagesRead: [300, 120],
   },
 ];
+
+function calculateProgress(totalPages, pagesRead) {
+  let progress = (pagesRead / totalPages) * 100;
+  return Math.round(progress);
+}
+
+console.log(calculateProgress(998, 98));
