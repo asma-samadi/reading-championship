@@ -56,3 +56,7 @@ function calculateCompletionRate(pagesReadArray, totalPagesArray) {
 
   return totalProgress / pagesReadArray.length;
 }
+
+function awardPoints(totalPages, completionRate) {
+  return Math.round(totalPages + completionRate * 2);
+}
